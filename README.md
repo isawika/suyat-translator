@@ -1,5 +1,5 @@
 
-_Suyat Translator_ is an open-source Javascript library for translating (transliterating) Philippine text into their corresponding indigenous scripts. The following scripts, or writing systems, are supported:
+_Suyat Translator_ is an open-source Javascript library for translating (transliterating) Philippine text into their corresponding indigenous scripts, known as . The following scripts are supported:
 * [Baybayin](https://en.wikipedia.org/wiki/Baybayin) (Tagalog)
 * [Hanunó'o](https://en.wikipedia.org/wiki/Hanunuo_script) Mangyan
 * [Buhid](https://en.wikipedia.org/wiki/Buhid_script)
@@ -22,15 +22,15 @@ Suyat is an [_abugida_](https://en.wikipedia.org/wiki/Abugida) (aka _"alphasylla
 
 The rules are simple. Put a _kudlit_ (diacritical mark) above the base consonant symbol to represent a trailing vowel 'e' or 'i', or below to represent 'o' or 'u'. Don't put a _kudlit_ when the trailing vowel is 'a'. Here is an example in Baybayin.
 
-![Baybayin text for "BA-BE-BI-BO-BU"](assets/ba-be-bi-bo-bu.png)
+[![Baybayin text for "BA-BE-BI-BO-BU"](assets/ba-be-bi-bo-bu.png)]('#')
 
 What if syllable ends with a consonant? Traditionally you would leave the base symbol unmarked. For example:
 
-![Baybayin text for "malaya"](assets/malaya.png) which can be read as "malay" or "malaya"
+[![Baybayin text for "malaya"](assets/malaya.png)](#) which can be read as "malay" or "malaya"
 
 To eliminate this ambiguity, a new convention was adopted-- add a _virama_ (ending diacritical mark) to the base consonant symbol.
 
-![Baybayin text for "malay" versus "malaya"](assets/malay-malaya.png) **Top:** "malay", **Bottom:** "malaya"
+[![Baybayin text for "malay" versus "malaya"](assets/malay-malaya.png)](#) **Top:** "malay", **Bottom:** "malaya"
 
 The Hanunó'o script follows the same set of rules. The Buhid and Tagbanwa scripts did not adopt the virama convention, hence making them more challenging to read.
 
@@ -47,15 +47,15 @@ The Hanunó'o script follows the same set of rules. The Buhid and Tagbanwa scrip
 3. To translate a text block
 
     >var output = translateBulk(inputText);<br/>
-    >$(target).html(output);`
+    >$(target).html(output);
 
-4. To translate letters as you type, call the _computeChangeOnAdd()_ or  _computeChangeOnDelete()_ function. Look at **editor.js** for an example.
+4. To translate letters as you type, call the _computeChangeOnAdd()_ or  _computeChangeOnDelete()_ function. Look at [**editor.js**](https://github.com/benbongalon/suyat-translator/blob/master/editor.js) for an example.
 
 ## How Dynamic Translation Works
 
 The library generates a translation by representing each _suyat_ symbol (glyph) as a sequence of 1 or 2 Unicode characters: the base character, optionally followed by a [combining diatritical mark](https://en.wikipedia.org/wiki/Combining_character).
 
-For example, the Hanunó'o syllable "mi" ![Hanunoo symbol "mi"](assets/hanunoo_mi.png) is represented as the Unicode sequence **U**+172B, **U**+1732.
+For example, the Hanunó'o syllable "mi" [![Hanunoo symbol "mi"](assets/hanunoo_mi.png)](#) is represented as the Unicode sequence **U**+172B, **U**+1732.
 
 As the user types each input letter (or delete), the functions _computeChangeOnAdd()_ or  _computeChangeOnDelete()_ determines what changes to make in the output buffer, returning this information in the form of an "edit command". The edit command specifies:
 
