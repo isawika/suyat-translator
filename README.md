@@ -22,7 +22,7 @@ Suyat is an [_abugida_](https://en.wikipedia.org/wiki/Abugida) (aka _"alphasylla
 
 The rules are simple. Put a _kudlit_ (diacritical mark) above the base consonant symbol to represent a trailing vowel 'e' or 'i', or below to represent 'o' or 'u'. Don't put a _kudlit_ when the trailing vowel is 'a'. Here is an example in Baybayin.
 
-[![Baybayin text for "BA-BE-BI-BO-BU"](assets/ba-be-bi-bo-bu.png)]('#')
+[![Baybayin text for "BA-BE-BI-BO-BU"](assets/ba-be-bi-bo-bu.png)](#)
 
 What if syllable ends with a consonant? Traditionally you would leave the base symbol unmarked. For example:
 
