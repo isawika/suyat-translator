@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--link rel="icon" href="../../../../favicon.ico"-->
+
+    <title>Suyat Translator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome icons. Needed because Bootstrap 4 does not support Glyphicons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="demo.css" rel="stylesheet">
+  </head>
+
+  <body class="text-left">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h4 class="masthead-brand"><a href="http://www.isawika.com">isawika.com</a></h4>
+        </div>
+      </header>  
+
+      <p>Demo app for showing how to use the <strong>suyat.js</strong> translator library</p>
+      
+      <div class="callout callout-info">
+        <p>Select a target script, then type some Tagalog/Mangyan/etc text and watch the live translation. Notice how the <i>suyat</i> symbols dance. <i><a href="https://primer.com.ph/tips-guides/2017/08/06/the-expats-guide-to-ancient-filipino-script-baybayin/">Kudlit</a></i> (diacritical) marks will flicker above or below the symbols like fireflies, and the symbols themselves will sometimes coalesce or divide.</p>
+        <p>Try typing "nga" or "mga" and see how the symbols shape-shift.</p>
+      </div>
+
+      <h3>Suyat Translator</h3>
+      <div class="form-group">
+        <div class="custom-control custom-control-inline custom-radio">
+          <input class="custom-control-input" type="radio" name="scriptName" id="inlineRadio1" 
+                 value="baybayin" onclick="setScript('baybayin');" checked>
+          <label class="custom-control-label" for="inlineRadio1">Baybayin</label>
+        </div>
+        <div class="custom-control custom-control-inline custom-radio">
+          <input class="custom-control-input" type="radio" name="scriptName" id="inlineRadio2" 
+                 value="buhid" onclick="setScript('buhid');">
+          <label class="custom-control-label" for="inlineRadio2">Buhid</label>
+        </div>
+        <div class="custom-control custom-control-inline custom-radio">
+          <input class="custom-control-input" type="radio" name="scriptName" id="inlineRadio3" 
+                 value="hanunoo" onclick="setScript('hanunoo');">
+          <label class="custom-control-label" for="inlineRadio3">Hanunó’o</label>
+        </div>
+        <div class="custom-control custom-control-inline custom-radio">
+          <input class="custom-control-input" type="radio" name="scriptName" id="inlineRadio4" 
+                 value="tagbanwa" onclick="setScript('tagbanwa');">
+          <label class="custom-control-label" for="inlineRadio4">Tagbanwa</label>
+        </div>
+        <div class="custom-control custom-control-inline float-right">
+          <i class='fas fa-question-circle' onclick="$('#missing-fonts-help').show();"></i>
+        </div>
+     </div>
+
+     <div id="missing-fonts-help" class="alert alert-warning fade collapse show">
+        If you see [][][] instead of <i>suyat</i> symbols, add the missing fonts to your browser:<br/><br/>
+        <strong>Windows</strong>
+        <ol>
+            <li>Download the <a href="https://github.com/benbongalon/suyat-translator/blob/master/fonts/NotoSans-suyat-fonts.zip?raw=true">Suyat fonts package</a> (.zip)</li>
+            <li>Uncompress the package</li>
+            <li>Search for “fonts” in the Start Menu or go to Start → Control Panel → Appearance and Personalization → Fonts</li>
+            <li>Select all fonts and drag them into the Fonts folder</li>
+        </ol>
+        <strong>Mac OS</strong>
+        <ol>
+            <li>Download the <a href="https://github.com/benbongalon/suyat-translator/blob/master/fonts/NotoSans-suyat-fonts.zip?raw=true">Suyat fonts package</a> (.zip)</li>
+            <li>Double click on the package to uncompress it</li>
+            <li>Open Font Book (Go to Finder → Applications → Font Book)</li>
+            <li>Select all of the font files and drag them to the Font column (i.e., the second column) of Font Book</li>
+        </ol>
+        <strong>Linux</strong>
+        <ol>
+            <li>Download the <a href="https://github.com/benbongalon/suyat-translator/blob/master/fonts/NotoSans-suyat-fonts.zip?raw=true">Suyat fonts package</a> (.zip)</li>
+            <li>Follow the rest of the Linux instructions in <a href="https://www.google.com/get/noto/help/install/" target="_blank" class="alert-link">Noto Fonts site</a></li>
+        </ol>
+        <div class="text-center">
+            <button type="button" class="btn btn-warning btn-sm" onclick="$('#missing-fonts-help').hide();">Done</button>
+        </div>
+     </div>
+
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6">
+                <form>
+                  <div class="form-group">
+                      <textarea class="form-control" id="input1" 
+                                rows="5" 
+                                maxlength="5000"
+                                placeholder="Sulat na dito"
+                      ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-6">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" readonly id="output1" 
+                                  rows="5"
+                                  placeholder=""
+                        ></textarea>
+                    </div>
+                </form>
+              </div>
+          </div>
+      </div>
+      
+      <strong>Known Issues</strong>
+      <ul>
+          <li>The app gets confused if you add/delete characters in the middle of the text. As a workaround, delete from the end until you reach the edit point then append from there. Or refresh the page to start over.</li>
+      </ul>
+
+      <div><hr/></div>
+
+    </div>  <!-- container -->
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="suyat.js" type="text/javascript"></script>
+    <script src="editor.js" type="text/javascript"></script>
+  </body>
+</html>
