@@ -16,8 +16,9 @@ function setScript(name) {
         case 'hanunoo':  script = hanunoo; break;
         case 'tagbanwa':  script = tagbanwa; break;
     }
-    $(source).val('');
-    $(target).html('');
+    var inText = $(source).val();
+    var outbuf = script.translateBulk(inText);
+    $(target).html(outbuf);
 }
 
 $(document).ready(function(){
