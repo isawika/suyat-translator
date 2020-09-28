@@ -1,5 +1,5 @@
 
-_Suyat Translator_ is an open-source Javascript library for translating (transliterating) Philippine text into their corresponding indigenous scripts, known as . The following scripts are supported:
+_Suyat Translator_ is an open-source Javascript library for translating (transliterating) Philippine text into their corresponding indigenous scripts, known as [_suyat_](https://en.wikipedia.org/wiki/Suyat). The following scripts are supported:
 * [Baybayin](https://en.wikipedia.org/wiki/Baybayin) (Tagalog)
 * [Hanunó'o](https://en.wikipedia.org/wiki/Hanunuo_script) Mangyan
 * [Buhid](https://en.wikipedia.org/wiki/Buhid_script)
